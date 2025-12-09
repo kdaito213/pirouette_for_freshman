@@ -1,9 +1,6 @@
 .header {
     width: 100%;
     height: auto;
-    /*background-image: url("../medias/mascot.png");
-    background-position: center;
-    background-size: cover; */
 }
 
 body{
@@ -12,6 +9,19 @@ body{
     padding: 0;
     background: #f5f5f5;
     text-align: center;
+}
+
+.mainImage{
+    position: relative;
+    z-index: -1;
+}
+
+.mainTitle{
+    font-size: 700%;
+    text-align: left;
+    padding-top: 200px;
+    margin-top: -1050px;
+    margin-bottom: 250px;
 }
 
 .gallery-title{
@@ -113,8 +123,58 @@ h2.subtitle{
     text-align: left;
 }
 
+.schedule li {
+  display: flex;
+  gap: 0.3em;
+}
+
+.schedule .month {
+  width: 3em;        /* 月の幅を固定 */
+  text-align: right; /* 右寄せ */
+}
+
+.schedule .colon {
+  width: 1em;
+  text-align: center;
+}
+
+.redUnderLine {
+  position: relative;
+  display: inline-block;
+}
+
+/* 初期状態：線なし */
+.redUnderLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.8s ease;
+}
+
+/* スクロール後 */
+.redUnderLine.active::after {
+  width: 100%;
+}
+
+
 @media (max-width: 600px){
     .slideshow-container{
         max-width: 95%;
+    }
+
+    .mainImage{
+        padding-top: 260px;
+        width: 380px;
+        height: auto;
+    }
+
+    .mainTitle{
+        margin-top: -600px;
+        margin-bottom: 10px;
+        font-size: 300%;
     }
 }
