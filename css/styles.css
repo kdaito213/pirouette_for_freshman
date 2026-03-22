@@ -1,109 +1,95 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
-
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: "Noto Sans JP", sans-serif; 
-}
-
-
-
-nav{
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
+/* ===== メニュー本体 ===== */
+.menu {
     position: fixed;
-    z-index: 10;
-}
-
-.logo{
-    width: 150px;
-    margin: 0 auto 20px auto;
-    cursor: pointer;
-    font-size: 3rem;
-    font-weight: 450;
-    z-index: 10;
-}
-
-nav ul{
-    background: #000;
-    width: 100%;
-}
-
-nav ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 20px 30px;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: white;
-}
-
-.text {
-    padding: 20px 10%;
-}
-
-nav.sticky{
-    position: fixed;
-    left: 0;
     top: 0;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 3%;
-    transition: 0.6s;
+    right: -320px; /* 初期は画面外 */
+    width: 320px;
+    height: 100%;
+    background: #111;
+    color: white;
+    transition: 0.4s cubic-bezier(.77,0,.18,1);
+    z-index: 100;
+    padding: 100px 30px;
 }
 
-nav.sticky.logo{
-    margin-top: 10px;
+.menu ul {
+    list-style: none;
+    padding: 0;
 }
 
-nav.sticky.ul{
-    background-color: transparent;
-    font-size: 1.3rem;
+.menu li {
+    margin: 30px 0;
 }
 
-.logo-left, .logo-right {
-    transition: color 0.5s;
+.menu a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.2s;
 }
 
-.logo-left {
-    color: black;
+/* ホバー */
+.menu a:hover {
+    opacity: 0.6;
 }
 
-.logo-right {
-    color: black; /* スクロール前は全体黒 */
+/* 開いたとき */
+.menu.open {
+    right: 0;
 }
 
-nav.sticky .logo-right {
-    color: white; /* スクロールしたら右半分だけ白に */
-}
-
-.footer {
-  text-align: center;
-  padding: 40px 0;
-  margin-top: 60px;
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* ---- スマホ対応 ---- */
-@media (max-width: 600px) {
-  .header {
-    width: 100%;
-    height: 35vh;
-    background-position: center top;
+/* ===== オーバーレイ ===== */
+.overlay {
+    position: fixed;
+    top: 0;
     left: 0;
-  }
-  
-  .header h1 {
-    width: 80%;
-    font-size: 1.5rem;
-    margin: 0 auto;
-  }
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 50;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== ハンバーガー ===== */
+.hamburger {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transition: 0.3s;
+}
+
+.hamburger span:nth-child(1){ top: 0; }
+.hamburger span:nth-child(2){ top: 10px; }
+.hamburger span:nth-child(3){ top: 20px; }
+
+/* ✕に変形 */
+.hamburger.open span:nth-child(1){
+    transform: rotate(45deg);
+    top: 10px;
+}
+.hamburger.open span:nth-child(2){
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3){
+    transform: rotate(-45deg);
+    top: 10px;
 }
