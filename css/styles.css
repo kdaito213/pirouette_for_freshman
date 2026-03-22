@@ -2,7 +2,7 @@
 .menu {
     position: fixed;
     top: 0;
-    right: -320px; /* 初期は画面外 */
+    right: -100%; /* 初期は画面外 */
     width: 320px;
     height: 100%;
     background: #111;
@@ -93,3 +93,4 @@
     transform: rotate(-45deg);
     top: 10px;
 }
+

@@ -14,12 +14,22 @@ body{
 .mainImage{
     position: relative;
     z-index: -1;
+    width: 100%;
+    height: auto;
+}
+
+.text-area{
+    padding-left: 100px;
+}
+
+.text-area .subtitle{
+    padding-left: 0px;
 }
 
 .mainTitle{
     font-size: 700%;
     text-align: left;
-    padding-top: 200px;
+    padding-top: 0px;
     margin-top: -1050px;
     margin-bottom: 250px;
 }
@@ -29,7 +39,7 @@ body{
     margin-bottom: 10px;
     font-weight: 700;
     text-align: center;
-    padding: 190px 20px 50px;
+    padding: 500px 20px 50px;
 }
 
 .slideshow-container{
@@ -124,8 +134,8 @@ h2.subtitle{
 }
 
 .schedule li {
-  display: flex;
-  gap: 0.3em;
+    display: flex;
+    gap: 0.3em;
 }
 
 .schedule .month {
@@ -134,47 +144,103 @@ h2.subtitle{
 }
 
 .schedule .colon {
-  width: 1em;
-  text-align: center;
+    width: 1em;
+    text-align: center;
 }
 
 .redUnderLine {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 /* 初期状態：線なし */
 .redUnderLine::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background-color: red;
-  transition: width 0.8s ease;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: width 0.8s ease;
 }
 
 /* スクロール後 */
 .redUnderLine.active::after {
-  width: 100%;
+    width: 100%;
 }
 
-
 @media (max-width: 600px){
-    .slideshow-container{
-        max-width: 95%;
+
+    body{
+        text-align: left;
     }
 
+    /* 画像 */
     .mainImage{
-        padding-top: 260px;
-        width: 380px;
-        height: auto;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
+    /* タイトル周り */
     .mainTitle{
-        margin-top: -600px;
-        margin-bottom: 10px;
-        font-size: 300%;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        margin: 0;
+        font-size: 2rem;
+        color: white; /* 画像の上に乗せる前提 */
+    }
+
+    /* テキストエリア */
+    .text-area{
+        padding: 20px;
+    }
+
+    .text-area .subtitle{
+        padding-left: 0;
+    }
+
+    h2.subtitle{
+        padding-left: 0;
+        font-size: 1.4rem;
+    }
+
+    /* ギャラリー */
+    h2.gallery-title{
+        padding: 0px 20px 20px;
+        font-size: 1.6rem;
+        margin-top: -5px;
+    }
+
+    .slideshow-container{
+        max-width: 100%;
+    }
+
+    /* 矢印 */
+    .prev, .next{
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /* ドット */
+    .dot{
+        height: 10px;
+        width: 10px;
+    }
+
+    /* スケジュール */
+    .schedule li{
+        font-size: 0.9rem;
+    }
+
+    .schedule .month{
+        width: 2.5em;
+    }
+
+    /* 区切り線 */
+    .divider{
+        width: 60%;
     }
 }
