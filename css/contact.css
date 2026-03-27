@@ -35,6 +35,45 @@ body {
     animation: dividerAnim 1.2s ease forwards;
 }
 
+.sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sns-link i {
+    font-size: 20px;
+}
+
+/* SNSごとの色 */
+.sns-link.x {
+    background: #000;
+}
+
+.sns-link.instagram {
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+.sns-link.line {
+    background: #06c755;
+}
+
+.sns-link.mail {
+    background: #555;
+}
+
+.sns-link:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
 @keyframes dividerAnim {
     to {
         opacity: 1;
