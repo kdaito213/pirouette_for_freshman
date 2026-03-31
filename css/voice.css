@@ -130,7 +130,7 @@ body {
 
     .member-card {
         flex-direction: column;      /* ← 縦並び */
-        text-align: center;          /* ← 文字中央寄せ */
+        text-align: left;          /* ← 文字中央寄せ */
         gap: 15px;
         padding: 25px 0;
     }
